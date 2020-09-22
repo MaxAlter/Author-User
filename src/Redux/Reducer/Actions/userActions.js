@@ -1,20 +1,23 @@
 export const ActionType = {
-  GET_ALL_USERS: 'GET_ALL_USERS',
-  POST_NEW_USER: 'POST_NEW_USER',
-  DELETE_USER: 'DELETE_USER',
   //
-
   FETCH_USERS_START: 'FETCH_USERS_START',
   FETCH_USERS_SUCCESS: 'FETCH_USERS_SUCCESS',
   FETCH_USERS_ERROR: 'FETCH_USERS_ERROR',
-
+  //
   ADD_USER_START: 'ADD_USER_START',
   ADD_USER_SUCCESS: 'ADD_USER_SUCCESS',
   ADD_USER_ERROR: 'ADD_USER_ERROR',
-
+  //
   DELETE_USER_START: 'DELETE_USER_START',
   DELETE_USER_SUCCESS: 'DELETE_USER_SUCCESS',
   DELETE_USER_ERROR: 'DELETE_USER_ERROR',
+  //
+  UPDATE_USER_START: 'UPDATE_USER_START',
+  UPDATE_USER_SUCCESS: 'UPDATE_USER_SUCCESS',
+  UPDATE_USER_ERROR: 'UPDATE_USER_ERROR',
+
+  //
+  MODAL_TOOGLE: 'MODAL_TOOGLE',
 };
 
 // ALL USERS
@@ -74,4 +77,30 @@ export const deleteUserError = error => ({
   payload: {
     error,
   },
+});
+
+// update user
+
+export const updateUserStart = () => ({
+  type: ActionType.UPDATE_USER_START,
+});
+
+export const updateUserSuccess = user => ({
+  type: ActionType.UPDATE_USER_SUCCESS,
+  payload: {
+    user,
+  },
+});
+
+export const updateUserError = error => ({
+  type: ActionType.UPDATE_USER_ERROR,
+  payload: {
+    error,
+  },
+});
+
+// is open modal
+
+export const madalUser = () => ({
+  type: ActionType.MODAL_TOOGLE,
 });

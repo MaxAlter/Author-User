@@ -1,3 +1,46 @@
-.user_container{
-    background-color: rgb(192, 186, 186);
+.user_container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 0;
+  padding: 0;
+}
+
+.user_list {
+  width: 230px;
+  list-style: none;
+  padding: 5px;
+  margin-bottom: 30px;
+  border: 1px solid rgb(185, 182, 182);
+  border-radius: 3px;
+  background-color: rgb(183, 219, 235);
+}
+
+.users_avatar {
+  display: flex;
+  justify-content: center;
+}
+
+.user_name {
+  border-bottom: 1px solid #9e9c9c;
+  border-radius: 3px;
+  padding: 4px;
+  margin: 5px 0 5px;
+}
+.user_surname {
+  border-bottom: 1px solid rgb(185, 182, 182);
+  padding: 4px;
+  margin: 5px 0 5px;
+}
+.user_desc {
+  border-bottom: 1px solid rgb(185, 182, 182);
+  padding: 4px;
+  margin: 5px 0 5px;
+}
+
+.user_button {
+  width: 180px;
+  display: flex;
+  margin: auto;
+  justify-content: space-between;
 }

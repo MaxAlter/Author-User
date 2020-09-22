@@ -1,0 +1,38 @@
+.form_container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 300px;
+    height: 100%;
+    margin: 0 auto;
+  }
+  /* name input */
+  .name_TextField {
+    margin: 10px;
+  }
+  .name_item {
+    width: 100%;
+  }
+  /* surname input */
+  .surname_TextField {
+    margin: 10px;
+  }
+  .surname_item {
+    width: 100%;
+  }
+  /* phone input */
+  .phone_TextField {
+    margin: 10px;
+  }
+  .phone_item {
+    width: 100%;
+  }
+  /* button save new user */
+  .save_button {
+    display: flex;
+    align-items: center;
+  }
+  /* close button */
+  .close_button{
+      width: 30px;
+  }

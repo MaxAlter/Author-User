@@ -86,7 +86,7 @@ class AddUserForm extends Component {
               color="primary"
               type="submit"
             >
-              SAVE USER
+              ADD USER
             </Button>
           </div>
         </form>

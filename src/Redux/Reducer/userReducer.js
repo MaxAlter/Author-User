@@ -12,6 +12,14 @@ const itemsReducer = (state = [], { type, payload }) => {
     case ActionType.ADD_USER_SUCCESS:
       return [...state, payload.user];
 
+    case ActionType.UPDATE_USER_SUCCESS:
+      return state.map(user => {
+        if (user.id === payload.user.id) {
+          return payload.user;
+        }
+        return user;
+      });
+
     default:
       return state;
   }
@@ -20,31 +28,22 @@ const errorReducer = (state = null, { type, payload }) => {
   switch (type) {
     case ActionType.FETCH_USERS_START:
     case ActionType.DELETE_USER_START:
+    case ActionType.UPDATE_USER_START:
       return null;
 
     case ActionType.FETCH_USERS_ERROR:
     case ActionType.DELETE_USER_ERROR:
+    case ActionType.UPDATE_USER_ERROR:
       return payload.error;
 
     default:
       return state;
   }
 };
-
-const loadingReducer = (state = false, { type, payload }) => {
+const madalReducer = (state = false, { type }) => {
   switch (type) {
-    case ActionType.FETCH_USERS_START:
-    case ActionType.DELETE_USER_START:
-    case ActionType.ADD_USER_START:
-      return true;
-
-    case ActionType.FETCH_USERS_SUCCESS:
-    case ActionType.FETCH_USERS_ERROR:
-    case ActionType.DELETE_USER_SUCCESS:
-    case ActionType.DELETE_USER_ERROR:
-    case ActionType.ADD_USER_SUCCESS:
-    case ActionType.ADD_USER_ERROR:
-      return false;
+    case ActionType.MODAL_TOOGLE:
+      return !state;
 
     default:
       return state;
@@ -53,6 +52,6 @@ const loadingReducer = (state = false, { type, payload }) => {
 
 export default combineReducers({
   users: itemsReducer,
-  loading: loadingReducer,
+  modal: madalReducer,
   error: errorReducer,
 });

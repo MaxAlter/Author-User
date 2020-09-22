@@ -8,8 +8,8 @@ export const addUser = newUser =>
 export const deletUser = id =>
   axios.delete(`http://77.120.241.80:8911/api/user/${id}`);
 
-// export const updateUser = id =>
-//   axios.(`http://77.120.241.80:8911/api/user/${id}`);
+export const updateUser = user =>
+  axios.put(`http://77.120.241.80:8911/api/user/${user.id}`, user);
 
 //   API:
 
