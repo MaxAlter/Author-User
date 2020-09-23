@@ -3,11 +3,6 @@
   justify-content: center;
   flex-wrap: wrap;
   width: 300px;
-  height: 100%;
-  margin: 0 auto 20px;
-  border: 1px solid #aaa7a7;
-  border-radius: 3px;
-  background-color: #c2e8f8;
 }
 /* name input */
 .name_TextField {
@@ -27,7 +22,7 @@
 .phone_TextField {
   margin: 10px;
 }
-.phone_item {
+.desc_item {
   width: 100%;
 }
 /* button save new user */
@@ -35,3 +30,8 @@
   display: flex;
   align-items: center;
 }
+/* close button */
+.close_button {
+  width: 65px;
+}
+

@@ -17,7 +17,7 @@ export const ActionType = {
   UPDATE_USER_ERROR: 'UPDATE_USER_ERROR',
 
   //
-  MODAL_TOOGLE: 'MODAL_TOOGLE',
+  MODAL_TOGGLE: 'MODAL_TOGGLE',
 };
 
 // ALL USERS
@@ -99,8 +99,7 @@ export const updateUserError = error => ({
   },
 });
 
-// is open modal
-
-export const madalUser = () => ({
-  type: ActionType.MODAL_TOOGLE,
+// is open/close modal
+export const modalUser = () => ({
+  type: ActionType.MODAL_TOGGLE,
 });

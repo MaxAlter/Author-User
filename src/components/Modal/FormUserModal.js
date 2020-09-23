@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import Button from '@material-ui/core/Button';
 import { TextField } from '@material-ui/core';
-import css from './UpdateUserDodal.module.css';
-//
+// 
+import css from './FormUserModal.module.css';
 
-class FormUpdateUserModal extends Component {
+
+class FormUserModal extends Component {
   state = {
     name: this.props.user.name || '',
     surname: this.props.user.surname || '',
@@ -19,7 +20,6 @@ class FormUpdateUserModal extends Component {
   handleSubmit = e => {
     e.preventDefault();
     this.props.onSubmit({ ...this.state, id: this.props.user.id });
-    
   };
 
   render() {
@@ -89,4 +89,4 @@ class FormUpdateUserModal extends Component {
   }
 }
 
-export default FormUpdateUserModal;
+export default FormUserModal;

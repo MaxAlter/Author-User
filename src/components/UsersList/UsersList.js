@@ -1,58 +1,50 @@
 import React, { useState } from 'react';
 import Button from '@material-ui/core/Button';
-import css from './userList.module.css';
+import { Pagination } from '@material-ui/lab';
+//
+import css from './UserList.module.css';
+import UserModal from '../Modal/UserModal';
+import List from './List';
 
-import UpdateUserModal from '../Modal/UpdateUserModal';
-
-const UsersList = ({ users, onDeleteUser, madalToggle, madalState }) => {
+const UsersList = ({ users, onDeleteUser, modalToggle, modalState }) => {
   let [activeUser, setActiveUser] = useState(null);
+  let [currentPage, setCurrentPage] = useState(1);
+
+  const perPage = 5;
+
+  const pageCount = Math.ceil(users.length / perPage);
+  const firstIdx = (currentPage - 1) * perPage;
+  const lastIdx = firstIdx + perPage;
+
+  const currentUsers = users.slice(firstIdx, lastIdx);
 
   const handleModalOpen = user => {
-    madalToggle();
+    modalToggle();
     setActiveUser(user);
   };
+
+  const handlePaginationChange = (e, value) => {
+    setCurrentPage(value);
+  };
+
   return (
     <>
-      <UpdateUserModal
-        madalState={madalState}
-        madalToggle={madalToggle}
+      <UserModal
+        modalState={modalState}
+        modalToggle={modalToggle}
         user={activeUser}
       />
-
+      <Pagination
+        count={pageCount}
+        shape="rounded"
+        onChange={handlePaginationChange}
+      />
       <ul className={css.user_container}>
-        {users.map(item => (
-          <li key={item.id} className={css.user_list}>
-            <div className={css.users_avatar}>
-              <img
-                src="https://kholmsk-arena.ru/wp-content/uploads/d-avatar.png"
-                alt="avatar user"
-                width="70px"
-                height="70px"
-              ></img>
-            </div>
-            <p className={css.user_name}>{item.name}</p>
-            <p className={css.user_surname}>{item.surname}</p>
-            <p className={css.user_desc}>{item.desc}</p>
-            <div className={css.user_button}>
-              <Button
-                onClick={() => onDeleteUser(item.id)}
-                variant="contained"
-                color="secondary"
-                size="small"
-              >
-                Delete
-              </Button>
-              <Button
-                variant="contained"
-                color="primary"
-                size="small"
-                onClick={() => handleModalOpen(item)}
-              >
-                Update
-              </Button>
-            </div>
-          </li>
-        ))}
+        <List
+          currentUsers={currentUsers}
+          onDeleteUser={onDeleteUser}
+          handleModalOpen={handleModalOpen}
+        />
       </ul>
     </>
   );

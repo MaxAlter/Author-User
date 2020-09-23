@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+//
 import { TextField } from '@material-ui/core';
 import Button from '@material-ui/core/Button';
-import css from './formAddUser.module.css';
-import { connect } from 'react-redux';
-
+import css from './AddUserForm.module.css';
+//
 import * as userOperations from '../../Redux/Operation/userOperations';
 
 class AddUserForm extends Component {
@@ -30,12 +31,10 @@ class AddUserForm extends Component {
 
   render() {
     const { name, surname, desc } = this.state;
-
     return (
       <>
         <form onSubmit={this.handleSubmit} className={css.form_container}>
           <div className={css.name_TextField}>
-            {/* name */}
             <TextField
               className={css.name_item}
               onChange={this.handleChange}
@@ -50,7 +49,6 @@ class AddUserForm extends Component {
             />
           </div>
           <div className={css.surname_TextField}>
-            {/* surname */}
             <TextField
               className={css.surname_item}
               onChange={this.handleChange}
@@ -64,10 +62,9 @@ class AddUserForm extends Component {
               autoComplete="off"
             />
           </div>
-          <div className={css.phone_TextField}>
-            {/* desc */}
+          <div className={css.desc_TextField}>
             <TextField
-              className={css.phone_item}
+              className={css.desc_item}
               onChange={this.handleChange}
               value={desc}
               size="small"

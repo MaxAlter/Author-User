@@ -1,16 +1,16 @@
 import React from 'react';
 import Modal from 'react-modal';
 import Button from '@material-ui/core/Button';
-import css from './UpdateUserDodal.module.css';
-
-import FormUpdateUserModal from './FormUpdateUserModal';
-
+//
+import css from './FormUserModal.module.css';
+import FormUserModal from './FormUserModal';
+//
 import { changeUser } from '../../Redux/Operation/userOperations';
 import { connect } from 'react-redux';
 
-// setting Modal //
+// setting default Modal //
 Modal.setAppElement('#root');
-// setting Modal //
+// setting default Modal //
 
 const customStyles = {
   content: {
@@ -18,30 +18,43 @@ const customStyles = {
     left: '50%',
     right: 'auto',
     bottom: 'auto',
-    marginRight: '-50%',
+    marginRight: 'auto',
     transform: 'translate(-50%, -50%)',
+  },
+  overlay: {
+    position: 'fixed',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    backgroundColor: 'rgba(0,0,0,0.7)',
   },
 };
 
-const UpdateUserModal = ({ madalState, madalToggle, user, changeUser }) => {
+const UserModal = ({ modalState, modalToggle, user, changeUser }) => {
   const handleSubmit = updatedUser => {
-    madalToggle();
+    modalToggle();
     changeUser(updatedUser);
   };
+
   return (
     <div>
-      <Modal isOpen={madalState} style={customStyles}>
+      <Modal
+        isOpen={modalState}
+        style={customStyles}
+        onRequestClose={modalToggle}
+      >
         <div className={css.close_button}>
           <Button
             size="small"
             variant="outlined"
             color="primary"
-            onClick={madalToggle}
+            onClick={modalToggle}
           >
             X
           </Button>
         </div>
-        <FormUpdateUserModal user={user} onSubmit={handleSubmit} />
+        <FormUserModal user={user} onSubmit={handleSubmit} />
       </Modal>
     </div>
   );
@@ -51,4 +64,4 @@ const MDTP = {
   changeUser,
 };
 
-export default connect(null, MDTP)(UpdateUserModal);
+export default connect(null, MDTP)(UserModal);

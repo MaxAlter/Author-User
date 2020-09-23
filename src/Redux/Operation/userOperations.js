@@ -1,4 +1,4 @@
-import { getUsers, addUser, deletUser, updateUser } from '../Operation/Api';
+import { getUsers, addUser, deletUser, updateUser } from './service/Api';
 
 import {
   fetchUsersStart,

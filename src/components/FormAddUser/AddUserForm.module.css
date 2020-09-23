@@ -1,0 +1,42 @@
+.form_container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 300px;
+  height: 100%;
+  margin: 0 auto 20px;
+  border: 1px solid #aaa7a7;
+  border-radius: 3px;
+  background-color: #fff;
+}
+
+.form_container:hover {
+  box-shadow: 0 15px 30px #00000040, 0 10px 10px #00000038;
+}
+/* name input */
+.name_TextField {
+  margin: 10px;
+}
+.name_item {
+  width: 100%;
+}
+/* surname input */
+.surname_TextField {
+  margin: 10px;
+}
+.surname_item {
+  width: 100%;
+}
+/* phone input */
+.desc_TextField {
+  margin: 10px;
+}
+.desc_item {
+  width: 100%;
+}
+/* button save new user */
+.save_button {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}

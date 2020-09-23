@@ -40,9 +40,9 @@ const errorReducer = (state = null, { type, payload }) => {
       return state;
   }
 };
-const madalReducer = (state = false, { type }) => {
+const modalReducer = (state = false, { type }) => {
   switch (type) {
-    case ActionType.MODAL_TOOGLE:
+    case ActionType.MODAL_TOGGLE:
       return !state;
 
     default:
@@ -52,6 +52,6 @@ const madalReducer = (state = false, { type }) => {
 
 export default combineReducers({
   users: itemsReducer,
-  modal: madalReducer,
+  modal: modalReducer,
   error: errorReducer,
 });
